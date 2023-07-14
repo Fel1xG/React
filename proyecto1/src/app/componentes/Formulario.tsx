@@ -1,10 +1,13 @@
 'use client'
 import { error } from 'console';
 import React, {useState} from 'react'
+import { Persona } from '../Interfaces';
+import { registrarPersona } from '../Firebase/Promesas';
+
 
 export const Formulario = () => {
-    const [nombre, setNombre] = useState<String>('');
-    const [apellido, setApellido] = useState<String>('');
+    const [nombre, setNombre] = useState<string>('');
+    const [apellido, setApellido] = useState<string>('');
     const [edad, setEdad] = useState<number>(0);
     const [ErrorEdad,setErrorEdad] = useState('');
     const registrar = ()=>{
@@ -13,6 +16,12 @@ export const Formulario = () => {
         console.log("Apellido:",apellido);
         console.log("Edad:",edad);
         alert("Bienvenido"+nombre+" "+apellido+" Edad: "+edad)
+        const p:Persona ={
+          nombre: nombre,
+          apellido: apellido,
+          edad:edad
+        }
+        registrarPersona(p)
     }else{
       setErrorEdad("La edad debe ser positiva")
     }
