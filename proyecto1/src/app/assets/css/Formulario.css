@@ -1,0 +1,88 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif; /* Fuente del texto */
+    background-color: #ffffff; /* Fondo blanco total para toda la página */
+    color: #000000; /* Texto en negro */
+  }
+  
+  h1 {
+    color: #000000; /* Título en negro */
+    text-align: center; /* Centrar el título */
+    margin-bottom: 20px; /* Espacio entre el título y el formulario */
+  }
+  
+  /* Estilo para el formulario */
+  #registroForm {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff; /* Establecer fondo blanco para el formulario */
+    border: 1px solid #000000;
+    border-radius: 5px;
+  }
+  
+  #registroForm label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #000000; /* Color de las etiquetas en negro */
+  }
+  
+  #registroForm input,
+  #registroForm select,
+  #registroForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    background-color: #ffffff;
+    color: #000000; /* Color del texto en los campos en negro */
+  }
+  
+  #registroForm input:focus,
+  #registroForm select:focus,
+  #registroForm textarea:focus {
+    outline: none;
+    border-color: #2c3e50;;
+  }
+  
+/* Estilo para el botón de registrar */
+#registroForm button[type="button"] {
+  display: inline-block; /* Convertir el botón en un elemento de bloque */
+  padding: 10px 20px; /* Ajustar el espaciado interno del botón */
+  background-color: #2c3e50;;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+  
+  /* Estilo para las sugerencias de ciudad */
+  #sugerenciasCiudad {
+    display: none;
+    border: 1px solid #000000;
+    background-color: #000000;
+    padding: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+  }
+  
+  #sugerenciasCiudad p {
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  #sugerenciasCiudad p:hover {
+    background-color: #000000;
+  }
+
+/* Estilos para el contenedor principal del formulario */
+.form-container {
+  background-color: #ffffff; /* Color blanco de fondo */
+  padding: 20px; /* Añade un poco de espacio entre el contenido y el borde del contenedor */
+}
+
+
+

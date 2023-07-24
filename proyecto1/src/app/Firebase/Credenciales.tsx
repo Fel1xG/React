@@ -1,3 +1,6 @@
+import 'firebase/compat/analytics';
+
+
 export const firebaseConfig = {
     apiKey: "AIzaSyAre1rf0oUncvnhIaNpjM9w9Uwikl4witM",
     authDomain: "iei2023fe-a153a.firebaseapp.com",

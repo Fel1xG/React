@@ -1,0 +1,33 @@
+/* Estilos para la tabla de registros */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  thead {
+    background-color: #f1f1f1;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    font-weight: bold;
+  }
+  
+  tbody tr:hover {
+    background-color: #f2f2f2;
+  }
+
+/* Estilos para el contenedor principal de Registros */
+.registros-container {
+    min-height: 100vh; /* Asegura que el contenedor ocupe al menos el 100% del alto de la ventana */
+    background-color: #ffffff; /* Color blanco de fondo */
+    padding: 20px; /* Añade un poco de espacio entre el contenido y el borde del contenedor */
+  }
+  

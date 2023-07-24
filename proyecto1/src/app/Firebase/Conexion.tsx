@@ -1,17 +1,16 @@
-// Import the functions you need from the SDKs you need
+// Importar las funciones y objetos necesarios desde las bibliotecas de Firebase
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { firebaseConfig } from "./Credenciales";
-import { getFirestore } from "@firebase/firestore";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from "firebase/firestore";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Variable para rastrear si Firebase ya ha sido inicializado
+let firebaseInitialized = false;
 
+// Inicializa la app de Firebase si no ha sido inicializada previamente
+if (typeof window !== 'undefined' && !firebaseInitialized) {
+  initializeApp(firebaseConfig);
+  firebaseInitialized = true; // Marcar Firebase como inicializado
+}
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 // Initialize Cloud Firestore and get a reference to the service
-export const db = getFirestore(app);
+export const db = getFirestore();
