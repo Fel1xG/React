@@ -1,6 +1,14 @@
 'use client'
-import React from 'react';
+import React, { useRef, forwardRef } from 'react';
 import "../assets/css/Componente1.css";
+import { Link } from 'react-router-dom';
+
+const Componente1 = () => {
+  const quienesSomosRef = useRef(null);
+  const productosRef = useRef(null);
+  const marcasRef = useRef(null);
+  const ubicacionRef = useRef(null);
+
 
 const QuienesSomosSection = () => {
   return (
@@ -60,40 +68,57 @@ const ProductosSection = () => {
 const MarcasSection = () => {
   return (
     <section id="marcas">
-    <div className="container componente1-texto-negro">
-      <h2>Marcas con las que trabajamos</h2>
-    <div className="row marcas-grid">
-      <div className="col-md-6 marcas-column">
-        <div className="marca">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ford_logo_flat.svg/2560px-Ford_logo_flat.svg.png" alt="Logo de Ford" />
-        </div>
-        <div className="marca">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Nissan_logo.png" alt="Logo de Nissan" />
-        </div>
-        <div className="marca">
-          <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c479.png" alt="Logo de Chevrolet" />
-        </div>
-        <div className="marca">
-          <img src="https://w7.pngwing.com/pngs/266/473/png-transparent-volkswagen-group-car-volkswagen-jetta-wolfsburg-volkswagen-emblem-trademark-logo-thumbnail.png" alt="Logo de Volkswagen" />
+      <div className="container componente1-texto-negro">
+        <h2>Marcas con las que trabajamos</h2>
+        <div className="row marcas-grid">
+          <div className="col-md-6 marcas-column">
+            <div className="marca">
+              <a href="https://www.ford.com" target="_blank">
+                <img src="assets\img\ford (1).png" alt="Logo de Ford" />
+              </a>
+            </div>
+            <div className="marca">
+              <a href="https://www.nissan.com" target="_blank">
+                <img src="assets\img\Logo de Nissan.png" alt="Logo de Nissan" />
+              </a>
+            </div>
+            <div className="marca">
+              <a href="https://www.chevrolet.com" target="_blank">
+                <img src="assets\img\Logo de Chevrolet.png" alt="Logo de Chevrolet" />
+              </a>
+            </div>
+            <div className="marca">
+              <a href="https://www.volkswagen.com" target="_blank">
+                <img src="assets/img/Logo de eVolkswagn.png" alt="Logo de eVolkswagn" />
+              </a>
+            </div>
+          </div>
+          <div className="col-md-6 marcas-column">
+            <div className="marca">
+              <a href="https://www.toyota.com" target="_blank">
+                <img src="assets/img/Logo de Toyota.png" alt="Logo de Toyota" />
+              </a>
+            </div>
+            <div className="marca">
+              <a href="https://www.bmw.com" target="_blank">
+                <img src="assets/img/Logo de BMW.png" alt="Logo de BMW" />
+              </a>
+            </div>
+            <div className="marca">
+              <a href="https://www.mazda.com" target="_blank">
+                <img src="assets/img/61321ea800feb70004beb7b8.png" alt="Logo de Mazda" />
+              </a>
+            </div>
+            <div className="marca">
+              <a href="https://www.lamborghini.com" target="_blank">
+                <img src="assets\img\lambo.png" alt="Logo de Lamborghini" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="col-md-6 marcas-column">
-        <div className="marca">
-          <img src="https://assets.stickpng.com/thumbs/5ec3e1ee58550c0004427739.png" alt="Logo de Toyota" />
-        </div>
-        <div className="marca">
-          <img src="https://pngimg.com/uploads/bmw_logo/bmw_logo_PNG19701.png" alt="Logo de BMW" />
-        </div>
-        <div className="marca">
-          <img src="https://assets.stickpng.com/thumbs/5ec3e32758550c0004427742.png" alt="Logo de Mazda" />
-        </div>
-        <div className="marca">
-          <img src="https://assets.stickpng.com/thumbs/580b585b2edbce24c47b2c8c.png" alt="Logo de Lamborghini" />
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
+
   );
 };
 
@@ -121,6 +146,16 @@ const Componente1 = () => {
       <ProductosSection />
       <MarcasSection />
       <UbicacionSection />
+    </div>
+    );  
+  };
+  return (
+    <div className="componente1-container">
+      {/* Incorporar las secciones HTML creadas anteriormente */}
+      <QuienesSomosSection ref={quienesSomosRef} />
+      <ProductosSection ref={productosRef} />
+      <MarcasSection ref={marcasRef} />
+      <UbicacionSection ref={ubicacionRef} />
     </div>
   );
 };

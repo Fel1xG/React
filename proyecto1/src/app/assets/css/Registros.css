@@ -29,5 +29,6 @@ table {
     min-height: 100vh; /* Asegura que el contenedor ocupe al menos el 100% del alto de la ventana */
     background-color: #ffffff; /* Color blanco de fondo */
     padding: 20px; /* Añade un poco de espacio entre el contenido y el borde del contenedor */
+    margin-top: 80px;
   }
   
