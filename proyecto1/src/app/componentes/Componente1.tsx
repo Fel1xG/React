@@ -1,13 +1,8 @@
 'use client'
-import React, { useRef, forwardRef } from 'react';
+import React, { useRef } from 'react';
 import "../assets/css/Componente1.css";
 import { Link } from 'react-router-dom';
 
-const Componente1 = () => {
-  const quienesSomosRef = useRef(null);
-  const productosRef = useRef(null);
-  const marcasRef = useRef(null);
-  const ubicacionRef = useRef(null);
 
 
 const QuienesSomosSection = () => {
@@ -146,16 +141,6 @@ const Componente1 = () => {
       <ProductosSection />
       <MarcasSection />
       <UbicacionSection />
-    </div>
-    );  
-  };
-  return (
-    <div className="componente1-container">
-      {/* Incorporar las secciones HTML creadas anteriormente */}
-      <QuienesSomosSection ref={quienesSomosRef} />
-      <ProductosSection ref={productosRef} />
-      <MarcasSection ref={marcasRef} />
-      <UbicacionSection ref={ubicacionRef} />
     </div>
   );
 };
