@@ -33,6 +33,7 @@ export const Registros = () => {
 
   return (
     <div className="registros-container">
+      <h1>Registros</h1>
       <table style={{ borderCollapse: 'collapse', width: '100%' }}>
         <thead>
           <tr>

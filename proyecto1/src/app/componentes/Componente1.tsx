@@ -1,7 +1,7 @@
 'use client'
 import React, { useRef } from 'react';
 import "../assets/css/Componente1.css";
-import { Link } from 'react-router-dom';
+
 
 
 
@@ -27,10 +27,10 @@ const ProductosSection = () => {
           <div className="col-md-4">
             <div className="card">
               {/* Ruta relativa para la primera imagen */}
-              <img className="card-img-top" src="/assets/img/315674354_479224974187480_903150178947587855_n.jpg" alt="Bandeja RH LH" />
+              <img className="card-img-top" src="\assets\img\315202742_498294712233033_1840982730604323210_n.jpg" alt="Eje Palier LH/RH" />
               <div className="card-body">
-                <h5 className="card-title">Bandeja RH/LH</h5>
-                <p className="card-text">La bandeja RH/LH es una pieza esencial de la suspensión delantera del vehículo para mantener la estabilidad y control. Recomiendo la bandeja de suspensión delantera MOOG por su calidad y durabilidad, garantía limitada de por vida y ajuste perfecto en Chevrolet Aveo y Sail 1.4.</p>
+                <h5 className="card-title">Radiador agua MT C/S (Sin Acondicionado)</h5>
+                <p className="card-text">Radiador de Agua MT C/S para Ford Ecosport 1.6 (03/11) y Ford Fiesta (03/10). Rendimiento confiable y duradero. Prevención de sobrecalentamientos. Conducción sin preocupaciones.</p>
               </div>
             </div>
           </div>
@@ -105,8 +105,8 @@ const MarcasSection = () => {
               </a>
             </div>
             <div className="marca">
-              <a href="https://www.lamborghini.com" target="_blank">
-                <img src="assets\img\lambo.png" alt="Logo de Lamborghini" />
+              <a href="https://www.suzuki.cl/" target="_blank">
+                <img src="\assets\img\download.png" alt="Logo de suzuki" />
               </a>
             </div>
           </div>

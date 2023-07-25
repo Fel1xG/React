@@ -82,8 +82,16 @@ body {
 /* Estilos para el contenedor principal del formulario */
 .form-container {
   background-color: #ffffff; /* Color blanco de fondo */
-  padding: 20px; /* Añade un poco de espacio entre el contenido y el borde del contenedor */
+  padding: 90px; /* Añade un poco de espacio entre el contenido y el borde del contenedor */
+  margin-top: 20px; /* Agrega margen superior para separar el título del formulario */
 }
 
-
+/* Estilos para el título del formulario */
+.form-container h1 {
+  font-size: 34px;
+  font-weight: bold;
+  color: #000000; /* Color del texto en negro */
+  text-align: center; /* Centrar el título */
+  margin-bottom: 10px; /* Espacio entre el título y el formulario */
+}
 

@@ -1,6 +1,6 @@
 // Promesas.tsx
 import { Persona, PersonaConId } from "../Interfaces";
-import { collection, addDoc, getDocs } from "firebase/firestore"; 
+import { collection, addDoc, getDocs, doc, setDoc } from "firebase/firestore"; 
 import { db } from "./Conexion";
 
 export const registrarPersona = async (p: Persona) => {
@@ -23,7 +23,11 @@ export const obtenerPersonas = async () => {
       codigoPostal: doc.data().codigoPostal,
     };
     listado.push(p);
-    console.log(doc.id, " => ", doc.data());
   });
   return listado;
 }
+
+export const actualizarPersona = async (idPersona: string, p: Persona) => {
+  const personaRef = doc(db, "personas", idPersona);
+  await setDoc(personaRef, p);
+  }

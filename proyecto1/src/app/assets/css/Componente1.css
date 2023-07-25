@@ -1,4 +1,3 @@
-/* Componente1.css */
 /* Estilos para el fondo blanco del componente */
 .componente1-container {
     background-color: #ffffff; /* Color de fondo blanco */
@@ -11,71 +10,93 @@
 
 /* Estilos para la sección de productos */
 #productos {
-    padding: 50px;
-    text-align: center;
-  }
-  
-  #productos h2 {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 30px;
-  }
-  
-  #productos .container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
+  padding: 50px;
+  text-align: center;
+  background-color: #f8f8f8;
+}
+
+#productos h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #000000;
+}
+
+#productos .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#productos .card {
+  border: none;
+  margin: 15px;
+  width: 320px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#productos .card-img-top {
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#productos .card-body {
+  padding: 20px;
+}
+
+#productos .card-img-top {
+  max-width: 260%;
+  height: 380px; 
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+#productos .card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#productos .card-text {
+  font-size: 87%; 
+  line-height: 1.5; 
+  color: #666;
+  margin-bottom: 29px; 
+  text-align: justify;
+  text-align-last: justify; 
+  text-justify: inter-word; 
+}
+
+@media (max-width: 768px) {
   #productos .card {
-    border: none;
-    margin: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    flex-basis: calc(33.33% - 20px);
+    width: 100%;
+    margin: 10px 0;
   }
-  
-  #productos .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Añadir estilos para mostrar las tarjetas en una fila */
+@media (min-width: 768px) {
+  #productos .row {
+    display: flex;
+    justify-content: space-between;
   }
-  
-  #productos .card-img-top {
-    width: 90%;
-    height: 390px; /* Ajusta la altura de la imagen */
-    object-fit: cover;
-    object-position: center;
-  }
-  
-  #productos .card-body {
-    padding: 20px;
-  }
-  
-  #productos .card-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  #productos .card-text {
-    font-size: 16px;
-    text-align: justify;
-  }
-  
-  @media (max-width: 768px) {
-    #productos .card {
-      flex-basis: 100%;
-      margin: 10px 0;
-    }
-  }
-  
-  /* Añadir estilos para mostrar las tarjetas en una fila */
-  @media (min-width: 768px) {
-    #productos .row {
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-  
+}
+
+
+/* Estilos para las imágenes dentro de la tarjeta */
+#productos img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
   
 
 /* Estilos para la sección de marcas */
