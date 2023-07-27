@@ -68,7 +68,7 @@ export const Formulario = () => {
 
   const validarCodigoPostal = () => {
     if (codigoPostal.trim() === '' || codigoPostal.length !== 7) {
-      setCodigoPostalError('El código postal debe tener 7 dígitos');
+      setCodigoPostalError('El código postal debe tener al menos 7 dígitos');
     } else {
       setCodigoPostalError('');
     }
@@ -205,7 +205,7 @@ export const Formulario = () => {
         <p className="error">{nombreError}</p>
         <p className="error">{correoError}</p>
         <p className="error">{telefonoError}</p>
-        <p className="error">{codigoPostalError}</p>
+        <p className="error">{codigoPostalError}</p><br/>
       <button type="button" onClick={registrar}>
           Registrar
         </button>

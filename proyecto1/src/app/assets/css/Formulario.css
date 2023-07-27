@@ -95,3 +95,6 @@ body {
   margin-bottom: 10px; /* Espacio entre el título y el formulario */
 }
 
+.error{
+  color:red;
+}

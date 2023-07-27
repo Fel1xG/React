@@ -1,8 +1,9 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import { obtenerPersonas, actualizarPersona } from '../Firebase/Promesas';
+import { obtenerPersonas, actualizarPersona, eliminarPersona } from '../Firebase/Promesas';
 import { PersonaConId } from '../Interfaces';
 import { useNavigate, useLocation } from 'react-router-dom';
+import "../assets/css/ModificarRegistros.css";
 
 const ModificarRegistros = () => {
   const [personas, setPersonas] = useState<PersonaConId[]>([]);
@@ -10,11 +11,95 @@ const ModificarRegistros = () => {
   const [nombre, setNombre] = useState('');
   const [correo, setCorreo] = useState('');
   const [telefono, setTelefono] = useState('');
-  const [genero, setGenero] = useState('masculino');
+  const [genero, setGenero] = useState('');
   const [fechaNacimiento, setFechaNacimiento] = useState('');
   const [ciudad, setCiudad] = useState('');
   const [direccion, setDireccion] = useState('');
   const [codigoPostal, setCodigoPostal] = useState('');
+
+  // Estados de error para los campos del formulario
+  const [nombreError, setNombreError] = useState('');
+  const [correoError, setCorreoError] = useState('');
+  const [telefonoError, setTelefonoError] = useState('');
+  const [generoError, setGeneroError] = useState('');
+  const [fechaNacimientoError, setFechaNacimientoError] = useState('');
+  const [ciudadError, setCiudadError] = useState('');
+  const [direccionError, setDireccionError] = useState('');
+  const [codigoPostalError, setCodigoPostalError] = useState('');
+
+  const handleNombreChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value.trim().length < 3) {
+      setNombreError('El nombre y apellido deben tener al menos 3 caracteres.');
+    } else {
+      setNombreError('');
+    }
+    setNombre(value);
+  };
+  
+  const handleCorreoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (!value.includes('@')) {
+      setCorreoError('Ingresa un correo válido.');
+    } else {
+      setCorreoError('');
+    }
+    setCorreo(value);
+  };
+  
+  const handleTelefonoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value.length !== 9 || !value.match(/^[0-9]+$/)) {
+      setTelefonoError('Ingresa un número de teléfono válido de 9 dígitos.');
+    } else {
+      setTelefonoError('');
+    }
+    setTelefono(value);
+  };
+  
+  const handleFechaNacimientoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    const dateOfBirth = new Date(value);
+    const currentDate = new Date();
+    const age = currentDate.getFullYear() - dateOfBirth.getFullYear();
+  
+    if (age < 18) {
+      setFechaNacimientoError('Debes tener al menos 18 años.');
+    } else {
+      setFechaNacimientoError('');
+    }
+    setFechaNacimiento(value);
+  };
+  
+  const handleCiudadChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    if (value === '') {
+      setCiudadError('Selecciona una ciudad.');
+    } else {
+      setCiudadError('');
+    }
+    setCiudad(value);
+  };
+  
+  const handleDireccionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const value = e.target.value;
+    if (value.trim().length < 10) {
+      setDireccionError('La dirección debe tener al menos 10 caracteres.');
+    } else {
+      setDireccionError('');
+    }
+    setDireccion(value);
+  };
+  
+  const handleCodigoPostalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (!value.match(/^[0-9]{5}$/)) {
+      setCodigoPostalError('Ingresa un código postal válido de 5 dígitos.');
+    } else {
+      setCodigoPostalError('');
+    }
+    setCodigoPostal(value);
+  };
 
   useEffect(() => {
     obtenerPersonas().then((listado) => {
@@ -47,6 +132,15 @@ const ModificarRegistros = () => {
       }
     }
   }, [id, personas]);
+  const handleEliminar = async (persona: PersonaConId) => {
+    // Llama a la función para eliminar el registro directamente
+    await eliminarPersona(persona.idPersona);
+  
+    // Recarga la lista de personas después de eliminar el registro
+    obtenerPersonas().then((listado) => {
+      setPersonas(listado);
+    });
+  };
 
   const handleGuardarCambios = () => {
     if (id) {
@@ -93,6 +187,8 @@ const ModificarRegistros = () => {
     navigate(`/modificar-registros?id=${persona.idPersona}`);
   };
 
+  
+
   return (
     <div className="registros-container">
       <h1>Lista de Registros a Modificar </h1>
@@ -122,7 +218,12 @@ const ModificarRegistros = () => {
               <td>{p.direccion}</td>
               <td>{p.codigoPostal}</td>
               <td>
-                <button onClick={() => handleEditar(p)}>Editar</button>
+                <button className="editar" onClick={() => handleEditar(p)}>
+                  Editar
+                </button>
+                <button className="eliminar" onClick={() => handleEliminar(p)}>
+                  Eliminar
+                </button>
               </td>
             </tr>
           ))}
@@ -131,33 +232,84 @@ const ModificarRegistros = () => {
       {registroEditar && (
         <div>
           <h2>Modificar Registro</h2>
-          {/* Resto del formulario para editar los datos del registro */}
           <form id="editarRegistroForm">
             <label htmlFor="nombre">Nombre y Apellido:</label>
-            <input type="text" id="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} required /><br />
-
-            <label htmlFor="correo">Correo:</label><br />
-            <input type="email" id="correo" value={correo} onChange={(e) => setCorreo(e.target.value)} required /><br />
-
-            <label htmlFor="telefono">Teléfono:</label><br />
-            <input type="tel" id="telefono" value={telefono} onChange={(e) => setTelefono(e.target.value)} required /><br />
-
+            <input
+              type="text"
+              id="nombre"
+              value={nombre}
+              onChange={handleNombreChange}
+              required
+            />
+            {nombreError && <p className="error-message">{nombreError}</p>}<br/>
+  
+            <label htmlFor="correo">Correo:</label>
+            <input
+              type="email"
+              id="correo"
+              value={correo}
+              onChange={handleCorreoChange}
+              required
+            />
+            {correoError && <p className="error-message">{correoError}</p>}
+  
+            <label htmlFor="telefono">Teléfono:</label>
+            <input
+              type="tel"
+              id="telefono"
+              value={telefono}
+              onChange={handleTelefonoChange}
+              required
+            />
+            {telefonoError && <p className="error-message">{telefonoError}</p>}<br/>
+            
             <label>Género:</label>
             <div className="genero-container">
               <div className="genero-buttons">
                 <label htmlFor="genero-masculino">Masculino</label>
-                <input type="radio" id="genero-masculino" name="genero" value="masculino" checked={genero === 'masculino'} onChange={(e) => setGenero(e.target.value)} required />
+                <input
+                  type="radio"
+                  id="genero-masculino"
+                  name="genero"
+                  value="masculino"
+                  checked={genero === 'masculino'}
+                  onChange={(e) => setGenero(e.target.value)}
+                  required
+                />
                 <label htmlFor="genero-femenino">Femenino</label>
-                <input type="radio" id="genero-femenino" name="genero" value="femenino" checked={genero === 'femenino'} onChange={(e) => setGenero(e.target.value)} required />
+                <input
+                  type="radio"
+                  id="genero-femenino"
+                  name="genero"
+                  value="femenino"
+                  checked={genero === 'femenino'}
+                  onChange={(e) => setGenero(e.target.value)}
+                  required
+                />
               </div>
-            </div><br/><br/>
-
-            <label htmlFor="fechaNacimiento">Fecha de Nacimiento:</label><br />
-            <input type="date" id="fechaNacimiento" value={fechaNacimiento} onChange={(e) => setFechaNacimiento(e.target.value)} required /><br /><br />
-
-            <label htmlFor="ciudad">Ciudad:</label><br />
-            <select id="busquedaCiudad" value={ciudad} onChange={(e) => setCiudad(e.target.value)} required>
-            <option value="">Selecciona una ciudad</option>
+              {generoError && <p className="error-message">{generoError}</p>} {/* Mostrar mensaje de error */}
+            </div><br/>
+  
+            <label htmlFor="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input
+              type="date"
+              id="fechaNacimiento"
+              value={fechaNacimiento}
+              onChange={handleFechaNacimientoChange}
+              required
+            />
+            {fechaNacimientoError && (
+              <p className="error-message">{fechaNacimientoError}</p>
+            )}
+  
+            <label htmlFor="ciudad">Ciudad:</label>
+            <select
+              id="busquedaCiudad"
+              value={ciudad}
+              onChange={handleCiudadChange}
+              required
+            >
+  <option value="">Selecciona una ciudad</option>
   <option value="Ancud">Ancud</option>
   <option value="Angol">Angol</option>
   <option value="Antofagasta">Antofagasta</option>
@@ -203,20 +355,41 @@ const ModificarRegistros = () => {
   <option value="Vicuña">Vicuña</option>
   <option value="Viña del Mar">Viña del Mar</option>
   <option value="Villa Alemana">Villa Alemana</option>
-</select><br /><br />
-
-            <label htmlFor="direccion">Dirección:</label><br />
-            <textarea id="direccion" value={direccion} onChange={(e) => setDireccion(e.target.value)} required></textarea><br /><br />
-
-            <label htmlFor="codigoPostal">Código Postal:</label><br />
-            <input type="number" id="codigoPostal" value={codigoPostal} onChange={(e) => setCodigoPostal(e.target.value)} pattern="[0-9]{5}" min="0" max="99999" title="Ingresa un código postal válido de 5 dígitos" required /><br />
-          </form>
-
-          <button onClick={handleGuardarCambios}>Guardar Cambios</button>
+</select>
+            {ciudadError && <p className="error-message">{ciudadError}</p>}<br/>
+  
+            <label htmlFor="direccion">Dirección:</label>
+            <textarea
+              id="direccion"
+              value={direccion}
+              onChange={handleDireccionChange}
+              required
+            ></textarea>
+            {/* Mostrar mensaje de error para dirección (opcional) */}
+            {direccionError && <p className="error-message">{direccionError}</p>}<br/>
+  
+            <label htmlFor="codigoPostal">Código Postal:</label>
+            <input
+              type="number"
+              id="codigoPostal"
+              value={codigoPostal}
+              onChange={handleCodigoPostalChange}
+              pattern="[0-9]{5}"
+              min="0"
+              max="99999"
+              title="Ingresa un código postal válido de 5 dígitos"
+              required
+            />
+            {codigoPostalError && (
+              <p className="error-message">{codigoPostalError}</p> 
+            )}
+          </form><br/>
+          <button className="guardar" onClick={handleGuardarCambios}>
+            Guardar Cambios
+          </button>
         </div>
       )}
     </div>
   );
-};
-
+}  
 export default ModificarRegistros;

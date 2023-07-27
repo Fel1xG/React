@@ -1,6 +1,6 @@
 // Promesas.tsx
 import { Persona, PersonaConId } from "../Interfaces";
-import { collection, addDoc, getDocs, doc, setDoc } from "firebase/firestore"; 
+import { collection, addDoc, getDocs, doc, setDoc, deleteDoc } from "firebase/firestore"; 
 import { db } from "./Conexion";
 
 export const registrarPersona = async (p: Persona) => {
@@ -31,3 +31,8 @@ export const actualizarPersona = async (idPersona: string, p: Persona) => {
   const personaRef = doc(db, "personas", idPersona);
   await setDoc(personaRef, p);
   }
+
+export const eliminarPersona = async (idPersona: string) => {
+  const personaRef = doc(db, "personas", idPersona);
+  await deleteDoc(personaRef);
+}

@@ -33,7 +33,7 @@ const Header = () => {
       <div className="nav-links">
         <Link to={"/"}>Home</Link>
         <Link to={"/formulario"}>Formulario</Link>
-        <Link to={"/registros"}>Registros</Link>
+        <Link to={"/registros"}>Ver Registros</Link>
         <Link to={"/modificar-registros"}>Modificar Registros</Link> {/* Agrega el enlace */}
         <button className="menu-button" onClick={toggleMenu}>Menu</button> {/* Botón para mostrar/ocultar el menú desplegable */}
       </div>

@@ -7,16 +7,55 @@ import "../assets/css/Componente1.css";
 
 const QuienesSomosSection = () => {
   return (
-    <section id="quienes-somos">
-      <div className="container componente1-texto-negro">
-        <h2><b>Quiénes somos</b></h2><br />
-        <p>En Macoem Repuestos somos una empresa dedicada a la venta de repuestos automotrices de alta calidad. A pesar de que somos una empresa joven, hemos logrado establecernos como una opción confiable para aquellos que buscan repuestos de calidad a precios competitivos.</p><br/>
-        <p>Nuestro equipo de expertos en mecánica automotriz está siempre dispuesto a ayudar a nuestros clientes a encontrar la pieza que necesitan para sus vehículos. Nos enorgullece servir a nuestros clientes y estamos comprometidos con su satisfacción.</p><br/>
-        <p>En Macoem Repuestos estamos siempre en busca de nuevas formas de mejorar y crecer para poder seguir brindando el mejor servicio a nuestros clientes. ¡Gracias por confiar en nosotros!</p>
+    <section id="quienes-somos" style={{
+      backgroundColor: "#2c3e50", // Rojo vino (#800000 en hexadecimal)
+      width: "100%",
+      height: "100vh",
+      overflow: "hidden",
+      position: "relative",
+      fontFamily: "'Exo', sans-serif",
+      textAlign: "center",
+      color: "#fff",
+    }}>
+      <div className="circles">
+        <ul>
+          <li style={{ left: "25%", width: "80px", height: "80px", animationDelay: "0s" }}></li>
+          <li style={{ left: "10%", width: "20px", height: "20px", animationDelay: "2s", animationDuration: "12s" }}></li>
+          <li style={{ left: "70%", width: "20px", height: "20px", animationDelay: "4s" }}></li>
+          <li style={{ left: "40%", width: "60px", height: "60px", animationDelay: "0s", animationDuration: "18s" }}></li>
+          <li style={{ left: "65%", width: "20px", height: "20px", animationDelay: "0s" }}></li>
+          <li style={{ left: "75%", width: "110px", height: "110px", animationDelay: "3s" }}></li>
+          <li style={{ left: "35%", width: "150px", height: "150px", animationDelay: "7s" }}></li>
+          <li style={{ left: "50%", width: "25px", height: "25px", animationDelay: "15s", animationDuration: "45s" }}></li>
+          <li style={{ left: "20%", width: "15px", height: "15px", animationDelay: "2s", animationDuration: "35s" }}></li>
+          <li style={{ left: "85%", width: "150px", height: "150px", animationDelay: "0s", animationDuration: "11s" }}></li>
+        </ul>
+        </div>
+      <div className="container componente1-texto-negro" style={{ padding: "30px", marginTop: "80px" }}>
+        <h2 style={{ fontSize: "36px", fontWeight: "bold", textAlign: "left" }}><b>Quiénes somos</b></h2>
+        <br />
+        <p style={{ fontSize: "18px", lineHeight: "1.6", textAlign: "justify" }}>
+          En Macoem Repuestos somos una empresa dedicada a la venta de repuestos automotrices de alta calidad.
+          A pesar de que somos una empresa joven, hemos logrado establecernos como una opción confiable para aquellos
+          que buscan repuestos de calidad a precios competitivos.
+        </p>
+        <br />
+        <p style={{ fontSize: "18px", lineHeight: "1.6", textAlign: "justify" }}>
+          Nuestro equipo de expertos en mecánica automotriz está siempre dispuesto a ayudar a nuestros clientes a
+          encontrar la pieza que necesitan para sus vehículos. Nos enorgullece servir a nuestros clientes y estamos
+          comprometidos con su satisfacción.
+        </p>
+        <br />
+        <p style={{ fontSize: "18px", lineHeight: "1.6", textAlign: "justify" }}>
+          En Macoem Repuestos estamos siempre en busca de nuevas formas de mejorar y crecer para poder seguir brindando
+          el mejor servicio a nuestros clientes. ¡Gracias por confiar en nosotros!
+        </p>
       </div>
     </section>
   );
 };
+
+
 
 const ProductosSection = () => {
   return (
@@ -73,7 +112,7 @@ const MarcasSection = () => {
               </a>
             </div>
             <div className="marca">
-              <a href="https://www.nissan.com" target="_blank">
+              <a href="https://www.nissan.cl/index.html" target="_blank">
                 <img src="assets\img\Logo de Nissan.png" alt="Logo de Nissan" />
               </a>
             </div>

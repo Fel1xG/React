@@ -1,0 +1,82 @@
+/* Estilos para los botones */
+button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el botón "Editar" */
+  button.editar {
+    background-color: #2c3e50;
+  }
+  
+  /* Estilos para el botón "Eliminar" */
+  button.eliminar {
+    background-color: #2c3e50;
+  }
+  
+  /* Estilos para el botón "Guardar Cambios" */
+  button.guardar {
+    background-color: #2c3e50;
+  }
+  
+/* Estilos para el formulario */
+#editarRegistroForm {
+    max-width: 400px;
+    margin-top: 20px;
+  }
+  
+  #editarRegistroForm label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Estilos para los campos de entrada */
+  #editarRegistroForm input,
+  #editarRegistroForm textarea,
+  #editarRegistroForm select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #555151;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #000; /* Color de texto negro */
+  }
+  
+  /* Estilos para el texto de marcador de posición en los campos de entrada */
+  #editarRegistroForm input::placeholder,
+  #editarRegistroForm textarea::placeholder,
+  #editarRegistroForm select::placeholder {
+    color: #555151; /* Color de texto de marcador de posición */
+  }
+  
+  #editarRegistroForm select {
+    cursor: pointer;
+  }
+  /* Estilos para el contenedor de género */
+  .genero-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .genero-buttons {
+    display: flex;
+    gap: 5px;
+  }
+  
+  /* Estilos para los radios de género */
+  .genero-buttons label {
+    margin-right: 5px;
+  }
+  
+  /* Estilos para el botón de "Guardar Cambios" en el formulario */
+  #editarRegistroForm button.guardar {
+    margin-top: 20px;
+  }
+  

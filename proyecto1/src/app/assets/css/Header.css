@@ -1,6 +1,6 @@
 /* Estilos para el contenedor principal del Header */
 .header-container {
-  background-color: #ffffff; /* Fondo blanco */
+  background-color: #E2725B; /* Fondo blanco */
   padding: 20px;
   display: flex;
   align-items: center; /* Centrar verticalmente los elementos */
@@ -49,7 +49,7 @@
 }
 
 .nav-links a:hover {
-  background-color: #f0f0f0; /* Color de fondo al pasar el cursor */
+  background-color: #F5F5DC; /* Color de fondo al pasar el cursor */
 }
 
 /* Estilo para hacer el header responsive */
