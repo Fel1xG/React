@@ -32,7 +32,7 @@ export const actualizarPersona = async (idPersona: string, p: Persona) => {
   await setDoc(personaRef, p);
   }
 
-export const eliminarPersona = async (idPersona: string) => {
-  const personaRef = doc(db, "personas", idPersona);
-  await deleteDoc(personaRef);
-}
+  export const eliminarPersona = async (idPersona: string) => {
+    const personaRef = doc(db, "personas", idPersona);
+    await deleteDoc(personaRef);
+  };
