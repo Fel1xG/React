@@ -93,8 +93,8 @@ const ModificarRegistros = () => {
   
   const handleCodigoPostalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    if (!value.match(/^[0-9]{5}$/)) {
-      setCodigoPostalError('Ingresa un código postal válido de 5 dígitos.');
+    if (!value.match(/^[0-9]{7}$/)) {
+      setCodigoPostalError('Ingresa un código postal válido de 7 dígitos.');
     } else {
       setCodigoPostalError('');
     }
@@ -377,7 +377,7 @@ const ModificarRegistros = () => {
               pattern="[0-9]{5}"
               min="0"
               max="99999"
-              title="Ingresa un código postal válido de 5 dígitos"
+              title="Ingresa un código postal válido de 7 dígitos"
               required
             />
             {codigoPostalError && (
